@@ -30,6 +30,6 @@ required:true
 },
 {
     timestamps:true,
-},
+}
 );
-module.exports =mongoose.model('Menu',menuSchemaSchema);
+module.exports = mongoose.model('Menu', menuSchema);

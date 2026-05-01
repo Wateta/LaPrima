@@ -4,14 +4,11 @@ const router = express.Router();
 const {
   signup,
   login,
-  verifyEmail,
-  forgotPassword,
-  resetPassword,
   logout,
-  testEmail
-} = require("../controllers/auth.controller");
+  testEmail,
+} = require("../controller/auth.controller");
 
-const { signupValidation,loginValidation } = require("../middleware/auth.middleware");
+const { signupValidation, loginValidation } = require("../middleware/auth.middleware");
 
 router.post("/test-email", testEmail);
 router.post("/signup", signupValidation, signup);

@@ -83,7 +83,7 @@ async function sendVerificationEmail(toEmail, code) {
                     !
                   </div>
                   <p style="margin:0;font-size:12px;line-height:1.5;color:#4B5563;">
-                    For your security, never share this code with anyone. Her-ingress staff will never ask you for it.
+                    For your security, never share this code with anyone. La Prima staff will never ask you for it.
                   </p>
                 </div>
               </td>
@@ -91,10 +91,10 @@ async function sendVerificationEmail(toEmail, code) {
             <tr>
               <td style="padding:0 24px 24px 24px;text-align:center;">
                 <p style="margin:0 0 4px 0;font-size:11px;color:#9CA3AF;">
-                  &copy; ${new Date().getFullYear()} Her-ingress. All rights reserved.
+                  &copy; ${new Date().getFullYear()} La Prima. All rights reserved.
                 </p>
                 <p style="margin:0;font-size:11px;color:#9CA3AF;">
-                  You are receiving this email because you attempted to sign up, log in, or reset your password on Her-ingress.
+                  You are receiving this email because you attempted to sign up, log in, or reset your password on La Prima.
                 </p>
               </td>
             </tr>
@@ -106,8 +106,7 @@ async function sendVerificationEmail(toEmail, code) {
   `;
 
   await transporter.sendMail({
-    from: `Her-ingress
-   <${process.env.EMAIL_USER}>`,
+    from: `La Prima <${process.env.EMAIL_USER}>`,
     to: toEmail,
     subject: "Your Verification Code",
     html: htmlContent,
@@ -135,45 +134,6 @@ const signup = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
-  }
-};
-
-const verifyEmail = async (req, res) => {
-  try {
-    const { email, code } = req.body;
-    const user = await User.findOne({ email });
-
-    if (!user) return res.status(400).json({ message: "User not found" });
-    if (user.isVerified)
-      return res.status(400).json({ message: "Already verified" });
-    if (user.verificationCode !== code)
-      return res.status(400).json({ message: "Invalid code" });
-
-    user.isVerified = true;
-    user.verificationCode = null;
-    await user.save();
-
-    const token = jwt.sign(
-      { id: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" },
-    );
-
-    res.json({
-      success: true,
-      message: "Email verified successfully",
-      token,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        field: user.field,
-        surveyAnswers: user.surveyAnswers,
-      },
-    });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
   }
 };
 
