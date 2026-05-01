@@ -1,7 +1,7 @@
 const User = require("../model/user.models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
+const { sendVerificationEmail: sendVerificationEmailUtil, generateCode: generateCodeUtil } = require("../utils/mailer");
 const { generateToken } = require("../middleware/auth.middleware");
 
 async function sendVerificationEmail(toEmail, code) {
@@ -211,7 +211,7 @@ const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    const verificationCode = generateCode();
+    const verificationCode = generateCodeUtil();
 
     const user = await User.create({
       name,
@@ -222,7 +222,7 @@ const signup = async (req, res) => {
     });
 
     try {
-      await sendVerificationEmail(email, verificationCode);
+      await sendVerificationEmailUtil(email, verificationCode);
     } catch (emailError) {
       const isDev = process.env.NODE_ENV !== "production";
       const isAuthError =
@@ -292,13 +292,13 @@ const forgotPassword = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "User not found" });
 
-    const code = generateCode();
+    const code = generateCodeUtil();
     user.resetPasswordCode = code;
     user.resetPasswordExpires = Date.now() + 15 * 60 * 1000;
     await user.save();
 
     try {
-      await sendVerificationEmail(email, code);
+      await sendVerificationEmailUtil(email, code);
     } catch (emailError) {
       const isDev = process.env.NODE_ENV !== "production";
       const isAuthError =
@@ -392,7 +392,7 @@ const testEmail = async (req, res) => {
   }
   const testCode = "123456";
   try {
-    await sendVerificationEmail(toEmail, testCode);
+    await sendVerificationEmailUtil(toEmail, testCode);
     res.json({
       success: true,
       message:
