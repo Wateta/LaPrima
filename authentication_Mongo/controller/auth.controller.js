@@ -4,15 +4,6 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const { generateToken } = require("../middleware/auth.middleware");
 
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
-  .split(",")
-  .map((e) => e.trim().toLowerCase())
-  .filter(Boolean);
-
-function generateCode() {
-  return Math.floor(100000 + Math.random() * 900000).toString();
-}
-
 async function sendVerificationEmail(toEmail, code) {
   // Temporary debug logs to verify environment configuration for Gmail
   console.log("EMAIL DEBUG -> EMAIL_USER:", process.env.EMAIL_USER);
@@ -127,54 +118,22 @@ async function sendVerificationEmail(toEmail, code) {
 
 const signup = async (req, res) => {
   try {
-    const { name, email, password, field, surveyAnswers } = req.body;
-
-    // ❌ REMOVE hashing here
-    // const hashedPassword = await bcrypt.hash(password, 10);
-
-    const verificationCode = generateCode();
-    const role = ADMIN_EMAILS.includes(email) ? "admin" : "user";
+    const { name, email, password } = req.body;
 
     const user = await User.create({
       name,
       email,
       password,
-      field,
-      surveyAnswers,
-      verificationCode,
-      isVerified: false,
-      role,
     });
-
-    try {
-      await sendVerificationEmail(email, verificationCode);
-    } catch (emailError) {
-      const isDev = process.env.NODE_ENV !== "production";
-      const isAuthError =
-        emailError?.message?.includes("535") ||
-        emailError?.message?.toLowerCase().includes("credentials");
-
-      if (isDev && isAuthError) {
-        console.log("\n" + "=".repeat(60));
-        console.log(
-          "EMAIL NOT CONFIGURED: Verification code (use this to verify):",
-        );
-        console.log(`  Email: ${email}`);
-        console.log(`  Code:  ${verificationCode}`);
-        console.log("=".repeat(60) + "\n");
-      } else {
-        await User.findByIdAndDelete(user._id);
-        return res.status(500).json({
-          message: isAuthError
-            ? "Email service is misconfigured. Please contact support."
-            : "We couldn't send the verification email. Please try again later.",
-        });
-      }
-    }
 
     res.status(201).json({
       success: true,
-      message: "Signup successful! Please verify your email.",
+      message: "Signup successful",
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      },
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -228,12 +187,6 @@ const login = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-    if (!user.isVerified) {
-      return res
-        .status(403)
-        .json({ message: "Please verify your email before logging in" });
-    }
-
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
@@ -247,9 +200,6 @@ const login = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        role: user.role,
-        field: user.field,
-        surveyAnswers: user.surveyAnswers,
       },
     });
   } catch (err) {
@@ -382,10 +332,7 @@ const testEmail = async (req, res) => {
 
 module.exports = {
   signup,
-  verifyEmail,
   login,
-  forgotPassword,
-  resetPassword,
   logout,
   testEmail,
 };

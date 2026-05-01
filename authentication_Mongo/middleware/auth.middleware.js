@@ -19,8 +19,6 @@ const signupValidation = async (req, res, next) => {
         "string.pattern.base":
           "Password must be at least 8 characters long, include uppercase, lowercase, number, and special character",
       }),
-    field: Joi.string().required(),
-    surveyAnswers: Joi.array().required(),
   });
 
   const { error, value } = schema.validate(req.body);
@@ -60,12 +58,12 @@ const loginValidation = (req, res, next) => {
 
 const generateToken = (user) => {
   return jwt.sign(
-    { id: user._id }, // store only ID
+    { id: user._id },
     process.env.JWT_SECRET,
     {
       expiresIn: "1h",
-      issuer: "HerIngress",
-      audience: "HerIngress",
+      issuer: "LaPrima",
+      audience: "LaPrima",
     }
   );
 };
