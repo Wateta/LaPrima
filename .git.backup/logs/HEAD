@@ -1,9 +1,0 @@
-0000000000000000000000000000000000000000 5c87328f5827582bb4f90ce52844b21c93260287 Wateta <shimirwasonia5@gmail.com> 1777632542 +0200	commit (initial): LaPrima Backend
-5c87328f5827582bb4f90ce52844b21c93260287 0000000000000000000000000000000000000000 Wateta <shimirwasonia5@gmail.com> 1777632563 +0200	Branch: renamed refs/heads/master to refs/heads/main
-0000000000000000000000000000000000000000 5c87328f5827582bb4f90ce52844b21c93260287 Wateta <shimirwasonia5@gmail.com> 1777632563 +0200	Branch: renamed refs/heads/master to refs/heads/main
-5c87328f5827582bb4f90ce52844b21c93260287 93be60c938aaa8ddedd0151460d2852a8623ce90 Wateta <shimirwasonia5@gmail.com> 1777639026 +0200	commit: Initial commit
-93be60c938aaa8ddedd0151460d2852a8623ce90 732581896c1f0529c569fa664b810075f74070ca Wateta <shimirwasonia5@gmail.com> 1777639500 +0200	commit: Initial commit
-732581896c1f0529c569fa664b810075f74070ca 43dad20a2a9794eb7161b7b7a5029fab4b141342 Wateta <shimirwasonia5@gmail.com> 1777640742 +0200	commit: update 8 files
-43dad20a2a9794eb7161b7b7a5029fab4b141342 33abf0f025e887d669da3000926543ed91013fe7 Wateta <shimirwasonia5@gmail.com> 1777640786 +0200	commit: update user.models.js
-33abf0f025e887d669da3000926543ed91013fe7 b8dd48e63a054edf050c9c03e92f980d7790716c Wateta <shimirwasonia5@gmail.com> 1777641804 +0200	commit: Initial commit
-b8dd48e63a054edf050c9c03e92f980d7790716c c85cbac553cb1ac8e92bfbc2e76e51c6dbc46a3b Wateta <shimirwasonia5@gmail.com> 1777642242 +0200	commit: updated the auto controller
