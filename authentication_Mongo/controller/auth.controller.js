@@ -1,13 +1,9 @@
-import User from "../model/user.models.js";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import sendEmail from "../../utils/sendemail.js";
-import { generateToken } from "../middleware/auth.middleware.js";
-import path from "path";
-import { JSDOM } from 'jsdom';
-import DOMPurify from 'dompurify';
-const window = new JSDOM('').window;
-const purify = DOMPurify(window);
+const User = require("../models/user.models");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const { generateToken } = require("../middleware/auth.middleware");
+
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || "")
   .split(",")
   .map((e) => e.trim().toLowerCase())
@@ -18,64 +14,98 @@ function generateCode() {
 }
 
 async function sendVerificationEmail(toEmail, code) {
-  const logoPath = path.resolve("staffnet-frontend/staffnet-frontend/src/assets/logo.jpg");
-  
+  // Temporary debug logs to verify environment configuration for Gmail
+  console.log("EMAIL DEBUG -> EMAIL_USER:", process.env.EMAIL_USER);
+  if (process.env.EMAIL_PASS) {
+    console.log(
+      "EMAIL DEBUG -> EMAIL_PASS length:",
+      process.env.EMAIL_PASS.length,
+    );
+  } else {
+    console.log("EMAIL DEBUG -> EMAIL_PASS is NOT set");
+  }
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
   const htmlContent = `
   <div style="margin:0;padding:0;background-color:#FAFAFA;">
     <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAFAFA;">
       <tr>
         <td align="center" style="padding:24px 16px;">
-          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background-color:#FFFFFF;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background-color:#E0E7FF;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
             <tr>
-              <td style="background-color:#2e5a88;padding:24px;text-align:center;">
-                <!-- StaffNet Logo -->
-                <div style="background-color:#FFFFFF;border-radius:16px;padding:8px;display:inline-block;box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-                  <img src="cid:staffnet-logo" alt="StaffNet Logo" style="width:64px;height:64px;display:block;object-fit:contain;" />
+              <td style="background-color:#EBE8FC;padding:20px 24px;text-align:center;">
+                <!-- Inline SVG logo so it always renders in email clients that support SVG -->
+                <div style="display:inline-block;width:150px;max-width:60%;">
+                  <svg viewBox="0 0 360 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Her-ingress
+                 logo" style="width:100%;height:auto;display:block;">
+                    <rect x="0" y="8" width="360" height="64" rx="32" fill="#FAFAFA"/>
+                    <circle cx="56" cy="40" r="24" fill="#7A3AED"/>
+                    <rect x="49" y="30" width="14" height="18" rx="3" fill="#FAFAFA"/>
+                    <rect x="56" y="30" width="7" height="18" rx="3" fill="#FF6584"/>
+                    <circle cx="53" cy="39" r="1.4" fill="#6C63F0"/>
+                    <text x="92" y="38" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                          font-size="28" font-weight="700" fill="#111827">
+                      Her-ingress
+                    
+                    </text>
+                    <text x="92" y="54" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                          font-size="12" font-weight="500" fill="#6B7280">
+                      Empowering Her Future
+                    </text>
+                  </svg>
                 </div>
-                <h1 style="color:#FFFFFF;margin:12px 0 0 0;font-size:28px;font-weight:900;letter-spacing:-0.5px;">StaffNet.</h1>
               </td>
             </tr>
             <tr>
-              <td style="padding:32px 32px 16px 32px;text-align:center;color:#1F2937;">
-                <h2 style="margin:0 0 16px 0;font-size:24px;line-height:1.3;font-weight:800;color:#2e5a88;">
-                  Verify your account
+              <td style="padding:24px 24px 8px 24px;text-align:left;color:#111827;">
+                <h2 style="margin:0 0 12px 0;font-size:22px;line-height:1.3;font-weight:700;color:#111827;">
+                  Your Her-ingress verification code
                 </h2>
-                <p style="margin:0 0 12px 0;font-size:16px;line-height:1.6;color:#4B5563;">
-                  Welcome to StaffNet! Use the code below to verify your account and start managing staff discipline.
+                <p style="margin:0 0 12px 0;font-size:14px;line-height:1.6;color:#374151;">
+                  Hey there, thank you for being part of the Her-ingress community. Use the code below to continue signing in or resetting your password.
                 </p>
               </td>
             </tr>
             <tr>
-              <td style="padding:16px 32px 32px 32px;text-align:center;">
-                <div style="display:inline-block;padding:20px 40px;border-radius:20px;background-color:#f8fafc;border:2px solid #2e5a88;">
-                  <span style="display:inline-block;font-size:36px;font-weight:900;letter-spacing:8px;color:#2e5a88;font-family:'SF Mono',Menlo,Monaco,Consolas,monospace;">
+              <td style="padding:8px 24px 24px 24px;text-align:center;">
+                <div style="display:inline-block;padding:16px 28px;border-radius:16px;background-color:#FFFFFF;border:2px dashed #6C63F0;">
+                  <span style="display:inline-block;font-size:32px;font-weight:800;letter-spacing:6px;color:#FF6584;font-family:'SF Mono',Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace;">
                     ${code}
                   </span>
                 </div>
-                <p style="margin:20px 0 4px 0;font-size:14px;line-height:1.5;color:#64748b;">
-                  This code will expire in <strong>10 minutes</strong>.
+                <p style="margin:16px 0 4px 0;font-size:13px;line-height:1.5;color:#4B5563;">
+                  This code will expire in <strong>15 minutes</strong>.
                 </p>
-                <p style="margin:0;font-size:13px;line-height:1.5;color:#94a3b8;">
-                  If you didn't request this, please ignore this email.
+                <p style="margin:0;font-size:12px;line-height:1.5;color:#6B7280;">
+                  If you did not request this, you can safely ignore this email.
                 </p>
               </td>
             </tr>
             <tr>
-              <td style="padding:0 32px 32px 32px;">
-                <div style="padding:20px;border-radius:16px;background-color:#fff1f2;border:1px solid #fecaca;">
-                  <p style="margin:0;font-size:13px;line-height:1.5;color:#e11d48;text-align:center;font-weight:600;">
-                    Security Note: Never share this code with anyone. StaffNet staff will never ask for it.
+              <td style="padding:0 24px 24px 24px;">
+                <div style="border-radius:16px;background-color:#EBE8FC;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;">
+                  <div style="width:24px;height:24px;border-radius:999px;background-color:#6C63F0;display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-size:14px;font-weight:700;flex-shrink:0;">
+                    !
+                  </div>
+                  <p style="margin:0;font-size:12px;line-height:1.5;color:#4B5563;">
+                    For your security, never share this code with anyone. Her-ingress staff will never ask you for it.
                   </p>
                 </div>
               </td>
             </tr>
             <tr>
-              <td style="padding:0 32px 32px 32px;text-align:center;">
-                <p style="margin:0 0 4px 0;font-size:12px;color:#94a3b8;">
-                  &copy; ${new Date().getFullYear()} StaffNet. Nyabihu, Rwanda.
+              <td style="padding:0 24px 24px 24px;text-align:center;">
+                <p style="margin:0 0 4px 0;font-size:11px;color:#9CA3AF;">
+                  &copy; ${new Date().getFullYear()} Her-ingress. All rights reserved.
                 </p>
-                <p style="margin:0;font-size:12px;color:#94a3b8;">
-                  Secure Workforce & Discipline Management.
+                <p style="margin:0;font-size:11px;color:#9CA3AF;">
+                  You are receiving this email because you attempted to sign up, log in, or reset your password on Her-ingress.
                 </p>
               </td>
             </tr>
@@ -86,33 +116,31 @@ async function sendVerificationEmail(toEmail, code) {
   </div>
   `;
 
-  await sendEmail({
+  await transporter.sendMail({
+    from: `Her-ingress
+   <${process.env.EMAIL_USER}>`,
     to: toEmail,
     subject: "Your Verification Code",
     html: htmlContent,
-    attachments: [{
-      filename: 'logo.jpg',
-      path: logoPath,
-      cid: 'staffnet-logo'
-    }]
   });
 }
 
 const signup = async (req, res) => {
   try {
-const { name, email, password } = req.body;
-const cleanName = purify.sanitize(name);
+    const { name, email, password, field, surveyAnswers } = req.body;
 
     // ❌ REMOVE hashing here
     // const hashedPassword = await bcrypt.hash(password, 10);
 
     const verificationCode = generateCode();
-    const role = ADMIN_EMAILS.includes(email) ? "admin" : "staff";
+    const role = ADMIN_EMAILS.includes(email) ? "admin" : "user";
 
     const user = await User.create({
-      name:cleanName,
+      name,
       email,
       password,
+      field,
+      surveyAnswers,
       verificationCode,
       isVerified: false,
       role,
@@ -122,20 +150,24 @@ const cleanName = purify.sanitize(name);
       await sendVerificationEmail(email, verificationCode);
     } catch (emailError) {
       const isDev = process.env.NODE_ENV !== "production";
-      
-      // In development, always show the verification code if email fails
-      if (isDev) {
+      const isAuthError =
+        emailError?.message?.includes("535") ||
+        emailError?.message?.toLowerCase().includes("credentials");
+
+      if (isDev && isAuthError) {
         console.log("\n" + "=".repeat(60));
-        console.log("EMAIL ERROR - Verification code (use this to verify):");
+        console.log(
+          "EMAIL NOT CONFIGURED: Verification code (use this to verify):",
+        );
         console.log(`  Email: ${email}`);
         console.log(`  Code:  ${verificationCode}`);
-        console.log(`  Error: ${emailError?.message || 'Unknown error'}`);
         console.log("=".repeat(60) + "\n");
       } else {
-        // In production, delete user and return error
-        await User.destroy({ where: { id: user.id } });
+        await User.findByIdAndDelete(user._id);
         return res.status(500).json({
-          message: "We couldn't send the verification email. Please try again later.",
+          message: isAuthError
+            ? "Email service is misconfigured. Please contact support."
+            : "We couldn't send the verification email. Please try again later.",
         });
       }
     }
@@ -152,7 +184,7 @@ const cleanName = purify.sanitize(name);
 const verifyEmail = async (req, res) => {
   try {
     const { email, code } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email });
 
     if (!user) return res.status(400).json({ message: "User not found" });
     if (user.isVerified)
@@ -165,7 +197,7 @@ const verifyEmail = async (req, res) => {
     await user.save();
 
     const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role },
+      { id: user._id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "1d" },
     );
@@ -175,10 +207,12 @@ const verifyEmail = async (req, res) => {
       message: "Email verified successfully",
       token,
       user: {
-        id: user.id,
+        id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,
+        field: user.field,
+        surveyAnswers: user.surveyAnswers,
       },
     });
   } catch (err) {
@@ -191,7 +225,7 @@ const login = async (req, res) => {
     const email = req.body.email.trim().toLowerCase();
     const password = req.body.password.trim();
 
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
     if (!user.isVerified) {
@@ -210,10 +244,12 @@ const login = async (req, res) => {
       message: "Login successful",
       token,
       user: {
-        id: user.id,
+        id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,
+        field: user.field,
+        surveyAnswers: user.surveyAnswers,
       },
     });
   } catch (err) {
@@ -225,7 +261,7 @@ const login = async (req, res) => {
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "User not found" });
 
     const code = generateCode();
@@ -267,7 +303,7 @@ const forgotPassword = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const { email, code, newPassword } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "User not found" });
 
     if (user.resetPasswordCode !== code)
@@ -290,7 +326,7 @@ const resetPassword = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-import { addToBlacklist } from "../../utils/tokenBlacklist.js";
+const tokenBlacklist = require("../utils/tokenBlacklist");
 
 const logout = async (req, res) => {
   try {
@@ -302,7 +338,7 @@ const logout = async (req, res) => {
 
     const token = authHeader.split(" ")[1];
 
-    addToBlacklist(token);
+    tokenBlacklist.add(token);
 
     res.json({
       success: true,
@@ -344,7 +380,7 @@ const testEmail = async (req, res) => {
   }
 };
 
-export {
+module.exports = {
   signup,
   verifyEmail,
   login,

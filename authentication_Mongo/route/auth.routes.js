@@ -1,7 +1,7 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import {
+const {
   signup,
   login,
   verifyEmail,
@@ -9,9 +9,9 @@ import {
   resetPassword,
   logout,
   testEmail
-} from "../controller/auth.controller.js";
+} = require("../controllers/auth.controller");
 
-import { signupValidation, loginValidation } from "../middleware/auth.middleware.js";
+const { signupValidation,loginValidation } = require("../middleware/auth.middleware");
 
 router.post("/test-email", testEmail);
 router.post("/signup", signupValidation, signup);
@@ -20,5 +20,4 @@ router.post("/verify-email", verifyEmail);
 router.post("/forgot-password", forgotPassword);
 router.post("/reset-password", resetPassword);
 router.post("/logout", logout);
-
-export default router;
+module.exports = router;

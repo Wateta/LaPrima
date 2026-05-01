@@ -1,8 +1,8 @@
-import jwt from "jsonwebtoken";
-import Joi from "joi";
-import bcrypt from "bcryptjs";
-import User from "../model/user.models.js";
-import { addToBlacklist, isBlacklisted } from "../../utils/tokenBlacklist.js";
+const jwt = require("jsonwebtoken");
+const Joi = require("joi");
+const bcrypt = require("bcryptjs");
+const User = require("../models/user.models");
+const tokenBlacklist = require("../utils/tokenBlacklist");
 
 
 const signupValidation = async (req, res, next) => {
@@ -19,13 +19,15 @@ const signupValidation = async (req, res, next) => {
         "string.pattern.base":
           "Password must be at least 8 characters long, include uppercase, lowercase, number, and special character",
       }),
+    field: Joi.string().required(),
+    surveyAnswers: Joi.array().required(),
   });
 
   const { error, value } = schema.validate(req.body);
   if (error)
     return res.status(400).json({ message: error.details[0].message });
 
-  const existingUser = await User.findOne({ where: { email: value.email } });
+  const existingUser = await User.findOne({ email: value.email });
   if (existingUser)
     return res.status(400).json({ message: "Email already registered" });
 
@@ -58,7 +60,7 @@ const loginValidation = (req, res, next) => {
 
 const generateToken = (user) => {
   return jwt.sign(
-    { id: user.id }, // store only ID
+    { id: user._id }, // store only ID
     process.env.JWT_SECRET,
     {
       expiresIn: "1h",
@@ -77,7 +79,7 @@ const logout = (req, res) => {
 
   const token = authHeader.split(" ")[1];
 
-  addToBlacklist(token);
+  tokenBlacklist.add(token);
 
   return res.status(200).json({
     success: true,
@@ -94,15 +96,13 @@ const authenticate = async (req, res, next) => {
 
   const token = authHeader.split(" ")[1];
 
-  if (isBlacklisted(token))
+  if (tokenBlacklist.has(token))
     return res.status(401).json({ message: "Token expired, please login again" });
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await User.findByPk(decoded.id, {
-      attributes: { exclude: ['password'] }
-    });
+    const user = await User.findById(decoded.id).select("-password");
 
     if (!user)
       return res.status(401).json({ message: "User not found" });
@@ -126,7 +126,7 @@ const adminOnly = (req, res, next) => {
 };
 
 
-export {
+module.exports = {
   signupValidation,
   loginValidation,
   generateToken,
