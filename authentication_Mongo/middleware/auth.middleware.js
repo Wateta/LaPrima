@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
-const User = require("../models/user.models");
+const User = require("../model/user.models");
 const tokenBlacklist = require("../utils/tokenBlacklist");
 
 
