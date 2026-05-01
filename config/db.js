@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-  const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/laPrima";
+  const uri = process.env.MONGODB_URI ;
 
   try {
     await mongoose.connect(uri);
