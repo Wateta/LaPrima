@@ -33,8 +33,7 @@ async function sendVerificationEmail(toEmail, code) {
               <td style="background-color:#EBE8FC;padding:20px 24px;text-align:center;">
                 <!-- Inline SVG logo so it always renders in email clients that support SVG -->
                 <div style="display:inline-block;width:150px;max-width:60%;">
-                  <svg viewBox="0 0 360 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Her-ingress
-                 logo" style="width:100%;height:auto;display:block;">
+                  <svg viewBox="0 0 360 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="La Prima logo" style="width:100%;height:auto;display:block;">
                     <rect x="0" y="8" width="360" height="64" rx="32" fill="#FAFAFA"/>
                     <circle cx="56" cy="40" r="24" fill="#7A3AED"/>
                     <rect x="49" y="30" width="14" height="18" rx="3" fill="#FAFAFA"/>
@@ -42,12 +41,11 @@ async function sendVerificationEmail(toEmail, code) {
                     <circle cx="53" cy="39" r="1.4" fill="#6C63F0"/>
                     <text x="92" y="38" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
                           font-size="28" font-weight="700" fill="#111827">
-                      Her-ingress
-                    
+                      La Prima
                     </text>
                     <text x="92" y="54" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
                           font-size="12" font-weight="500" fill="#6B7280">
-                      Empowering Her Future
+                      La Prima
                     </text>
                   </svg>
                 </div>
@@ -56,10 +54,10 @@ async function sendVerificationEmail(toEmail, code) {
             <tr>
               <td style="padding:24px 24px 8px 24px;text-align:left;color:#111827;">
                 <h2 style="margin:0 0 12px 0;font-size:22px;line-height:1.3;font-weight:700;color:#111827;">
-                  Your Her-ingress verification code
+                  Your La Prima verification code
                 </h2>
                 <p style="margin:0 0 12px 0;font-size:14px;line-height:1.6;color:#374151;">
-                  Hey there, thank you for being part of the Her-ingress community. Use the code below to continue signing in or resetting your password.
+                  Hey there, thank you for being part of the La Prima community. Use the code below to continue signing in or resetting your password.
                 </p>
               </td>
             </tr>
