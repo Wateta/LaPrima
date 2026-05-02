@@ -11,8 +11,8 @@ function LandingPage() {
                    
                     <h2 className="landing-page-subtitle"> THE COFFEE SHOP PLATFORM</h2>
                      <h1 className="landing-page-title">Where Every Coffee</h1>
-                    <h2 className="landing-page-subtitle">Coffee Shop</h2>
-                    <h2 className="landing-page-subtitle">Thrives Online</h2>
+                    <h1 className="landing-page-subtitle">Coffee Shop</h1>
+                    <h1 className="landing-page-subtitle">Thrives Online</h1>
                     <p className="landing-page-description">
                         La Prima connects coffee shop owners with their customers. Register your shop, manage your menu, track orders, and grow your community — all in one elegant platform.
                     </p>
