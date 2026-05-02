@@ -413,4 +413,5 @@ module.exports = {
   login,
   logout,
   testEmail,
+  verifyEmail,
 };
