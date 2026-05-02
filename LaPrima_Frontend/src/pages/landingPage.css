@@ -18,6 +18,47 @@ html, body, #root, .App {
     margin: 0;
     padding: 0;
 }
+
+.landing-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    width: 100%;
+}
+
+.navbar-logo {
+    color: #DDA15E;
+    font-family: "Jim Nightshade", cursive;
+    font-size: 40px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 18px;
+}
+
+.navbar-links a:hover {
+    color: #DDA15E;
+}
+
+.navbar-join-btn {
+    background-color: #DDA15E;
+    color: #2B211C;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 18px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
 .landing-page-title{
    color:white;
     font-size:80px;

@@ -4,7 +4,14 @@ function LandingPage() {
     return (
         <div className="landing-page">
             <div className="landing-navbar">
-
+                <div className="navbar-logo">la Prima</div>
+                <div className="navbar-links">
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How it works</a>
+                    <a href="#features">Features</a>
+                    <a href="#testimonials">Testimonials</a>
+                </div>
+                <button className="navbar-join-btn">Join Us</button>
             </div>
             <div className="landing-content">
                 <div className="left">
