@@ -20,7 +20,7 @@ function LandingPage() {
                     </p>
                     <div className="landing-buttons">
                         <button className="landing-register">Register your shop</button>
-                        <button className="landing-register">See how it works</button>
+                        <button className="landing-register-btn2">See how it works</button>
                     </div>
                 </div>
                 <div className="right">
