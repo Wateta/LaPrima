@@ -193,5 +193,7 @@ html, body, #root, .App {
   font-size:90px;
 }
 .logo-image{
-    
+    width:60px;
+    margin-left:127px;
+    margin-top:40px;
 }
