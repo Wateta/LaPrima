@@ -29,9 +29,16 @@ html, body, #root, .App {
 
 .navbar-logo {
     color: #DDA15E;
-   font-family: "itim", sans-serif;
+    font-family: "itim", sans-serif;
     font-size: 40px;
     margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crown-icon {
+    flex-shrink: 0;
 }
 
 .navbar-links {
