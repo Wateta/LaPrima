@@ -104,9 +104,9 @@ html, body, #root, .App {
 .landing-content {
     padding-left: 10px;
     display: flex;
-    min-height: 100vh;
+   /* min-height: 100vh;*/
     padding: 40px;
-   padding-top:5px;
+   padding-top:10px;
 }
 
 .left {
