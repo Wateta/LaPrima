@@ -1,0 +1,45 @@
+.orders {
+  padding: 2rem;
+}
+
+.add-order-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+.add-order-form input,
+.add-order-form select {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.add-order-form button {
+  padding: 0.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.order-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.order-item {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.order-item button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
