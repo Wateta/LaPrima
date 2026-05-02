@@ -290,55 +290,6 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-const forgotPassword = async (req, res) => {
-  try {
-    const { email } = req.body;
-    const user = await User.findOne({ email: email.trim().toLowerCase() });
-    if (!user) return res.status(400).json({ message: "User not found" });
-
-    const code = generateCodeUtil();
-    user.resetPasswordCode = code;
-    user.resetPasswordExpires = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes
-    await user.save();
-
-    await sendResetPasswordEmailUtil(email, code);
-
-    res.status(200).json({
-      success: true,
-      message: "Password reset code sent to your email",
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-const resetPassword = async (req, res) => {
-  try {
-    const { email, code, newPassword } = req.body;
-    const user = await User.findOne({ email: email.trim().toLowerCase() });
-    if (!user) return res.status(400).json({ message: "User not found" });
-
-    if (user.resetPasswordCode !== code)
-      return res.status(400).json({ message: "Invalid reset code" });
-
-    if (new Date() > user.resetPasswordExpires)
-      return res.status(400).json({ message: "Reset code expired" });
-
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    user.password = hashedPassword;
-    user.resetPasswordCode = null;
-    user.resetPasswordExpires = null;
-    await user.save();
-
-    res.status(200).json({
-      success: true,
-      message: "Password reset successfully",
-    });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 const login = async (req, res) => {
   try {
     const email = req.body.email.trim().toLowerCase();
