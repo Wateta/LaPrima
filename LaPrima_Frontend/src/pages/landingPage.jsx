@@ -8,9 +8,11 @@ function LandingPage() {
             </div>
             <div className="landing-content">
                 <div className="left">
-                   
-                    <h2 className="landing-page-subtitle"> THE COFFEE SHOP PLATFORM</h2>
-                     <h1 className="landing-page-title">Where Every Coffee</h1>
+                    <div className="landing-page-container">
+                    <div className="line-decoration"></div>
+                    <p className="landing-page-subtitle"> THE COFFEE SHOP PLATFORM</p>
+                    </div>
+                     <h1 className="landing-page-title">Where Every </h1>
                     <h1 className="landing-page-subtitle">Coffee Shop</h1>
                     <h1 className="landing-page-subtitle-secondary">Thrives Online</h1>
                     <p className="landing-page-description">

@@ -20,11 +20,54 @@ html, body, #root, .App {
 }
 .landing-page-title{
     color:white;
+    font-size:80px;
 }
 .landing-page-subtitle{
     color:#DDA15E;
-    font-family:Intel One Mono;
+    font-family: 'Intel One Mono Variable', 'Courier New', Courier, monospace;
+    font-size: 28px;
+    margin-top: 10px;
 }
 .landing-page-subtitle-secondary{
     color:white;
+    font-size:80px;
+    font-family: "Hedvig Letters Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
+
+.line-decoration {
+    width: 70px;
+    height: 1px;
+    background-color: #DDA15E;
+    margin-bottom: 20px;
+    margin-top:20px;
+    margin-right:15px;
+}
+
+.landing-content {
+    padding-left: 10px;
+    display: flex;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landing-page-container{
+    display:flex;
+}
+
