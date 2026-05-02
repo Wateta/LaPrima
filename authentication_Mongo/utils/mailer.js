@@ -92,6 +92,9 @@ const sendVerificationEmail = async (toEmail, code) => {
     to: toEmail,
     subject: "Your Verification Code",
     html: htmlContent,
+  });
+};
+
 const sendResetPasswordEmail = async (toEmail, code) => {
   console.log("EMAIL DEBUG -> EMAIL_USER:", process.env.EMAIL_USER);
   if (process.env.EMAIL_PASS) {
