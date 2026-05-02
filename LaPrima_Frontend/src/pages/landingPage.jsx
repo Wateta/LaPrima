@@ -3,17 +3,9 @@ import './landingPage.css'
 function LandingPage() {
     return (
         <div className="landing-page">
+            <img src="" alt="" />
             <div className="landing-navbar">
-                <div className="navbar-logo">
-                    <svg className="crown-icon" width="40" height="40" viewBox="0 0 100 100" fill="#DDA15E" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 70 L30 30 L50 50 L70 30 L80 70 L20 70 Z" fill="#DDA15E"/>
-                        <circle cx="30" cy="25" r="10" fill="#DDA15E"/>
-                        <circle cx="50" cy="20" r="12" fill="#DDA15E"/>
-                        <circle cx="70" cy="25" r="10" fill="#DDA15E"/>
-                        <rect x="15" y="70" width="70" height="15" rx="3" fill="#DDA15E"/>
-                    </svg>
-                    <span className='la'>la</span>   <span className='p'>P</span>rima
-                </div>
+                <div className="navbar-logo"><span className='la'>la</span>   <span className='p'>P</span>rima</div>
                 <div className="navbar-links">
                     <a href="#about">About</a>
                     <a href="#how-it-works">How it works</a>
