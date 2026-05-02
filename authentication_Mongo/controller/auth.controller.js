@@ -366,7 +366,7 @@ const forgotPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   try {
-    const { email, code, newPassword } = req.body;
+    const { email, code, new_password: newPassword } = req.body;
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ message: "User not found" });
 
