@@ -106,6 +106,7 @@ html, body, #root, .App {
     display: flex;
     min-height: 100vh;
     padding: 40px;
+   padding-top:10px;
 }
 
 .left {
@@ -114,6 +115,7 @@ html, body, #root, .App {
     flex-direction: column;
     justify-content: center;
     margin-left: 90px;
+    margin-top: 20px;
 }
 
 .right {
@@ -175,6 +177,7 @@ html, body, #root, .App {
 .la{
     font-size:40px;
     font-family: "itim", sans-serif;
+    margin-right: 10px;
 }
 .p{
   font-family: "Ingrid Darling", cursive;
