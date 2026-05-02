@@ -1,7 +1,7 @@
 const User = require("../model/user.models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { sendVerificationEmail: sendVerificationEmailUtil, generateCode: generateCodeUtil } = require("../utils/mailer");
+const { sendVerificationEmail: sendVerificationEmailUtil, sendResetPasswordEmail: sendResetPasswordEmailUtil, generateCode: generateCodeUtil } = require("../utils/mailer");
 const { generateToken } = require("../middleware/auth.middleware");
 
 async function sendVerificationEmail(toEmail, code) {
