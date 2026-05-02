@@ -1,0 +1,249 @@
+/* ============================================
+   LA PRIMA - Authentication Pages Styling
+   ============================================ */
+
+:root {
+  --la-prima-dark: #2b2b2b;
+  --la-prima-gold: #c9a961;
+  --la-prima-light-gold: #d4a574;
+  --la-prima-cream: #f5f1e8;
+  --la-prima-text: #ffffff;
+  --la-prima-text-light: #e8d7c3;
+  --la-prima-border: #4a4a4a;
+  --la-prima-error: #e74c3c;
+  --la-prima-success: #27ae60;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--la-prima-dark);
+  color: var(--la-prima-text);
+}
+
+/* Main Auth Container */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #2b2b2b 0%, #3e3e3e 100%);
+}
+
+/* Auth Card */
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--la-prima-dark);
+  border: 1px solid var(--la-prima-gold);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 40px rgba(201, 169, 97, 0.15);
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Auth Header */
+.auth-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid var(--la-prima-gold);
+  padding-bottom: 1.5rem;
+}
+
+.auth-header h1 {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--la-prima-text);
+  letter-spacing: 0.5px;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: var(--la-prima-text-light);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--la-prima-text);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Form Input */
+.form-input {
+  padding: 0.95rem 1.2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--la-prima-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--la-prima-text);
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(232, 215, 195, 0.6);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--la-prima-gold);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+}
+
+.code-input {
+  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--la-prima-text-light);
+  margin: 0.3rem 0 0 0;
+  font-style: italic;
+}
+
+/* Button */
+.auth-button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--la-prima-gold) 0%, var(--la-prima-light-gold) 100%);
+  color: #2b2b2b;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+}
+
+.auth-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.auth-message {
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.auth-message.success {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: #27ae60;
+  border: 1px solid #27ae60;
+}
+
+.auth-message.error {
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Auth Footer */
+.auth-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--la-prima-border);
+}
+
+.auth-footer p {
+  font-size: 0.9rem;
+  color: var(--la-prima-text-light);
+  margin: 0;
+}
+
+.resend-link {
+  color: var(--la-prima-gold);
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.resend-link:hover {
+  color: var(--la-prima-light-gold);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .auth-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .auth-form {
+    gap: 1.5rem;
+  }
+}
