@@ -257,6 +257,39 @@ const signup = async (req, res) => {
   }
 };
 
+const verifyEmail = async (req, res) => {
+  try {
+    const { email, code } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: "User not found" });
+
+    if (user.isVerified)
+      return res.status(400).json({ message: "Email already verified" });
+
+    if (user.verificationCode !== code)
+      return res.status(400).json({ message: "Invalid verification code" });
+
+    user.isVerified = true;
+    user.verificationCode = null;
+    await user.save();
+
+    const token = generateToken(user);
+
+    res.status(200).json({
+      success: true,
+      message: "Email verified successfully",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const login = async (req, res) => {
   try {
     const email = req.body.email.trim().toLowerCase();
@@ -268,6 +301,9 @@ const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Invalid credentials" });
+
+    if (!user.isVerified)
+      return res.status(403).json({ message: "Please verify your email before logging in" });
 
     const token = generateToken(user);
 
