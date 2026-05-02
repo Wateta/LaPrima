@@ -13,8 +13,8 @@ const router = express.Router();
 router.get("/menu", getMenuItems);
 router.get("/menu/:id", getMenuItemById);
 router.get("/menu/status/:status", getMenuItemByStatus);
-router.post("/menu", authenticate, adminOnly, addMenuItems);
-router.patch("/menu/:id", authenticate, adminOnly, updateMenuItems);
-router.delete("/menu/:id", authenticate, adminOnly, deleteMenuItems);
+router.post("/menu", authenticate, addMenuItems);
+router.patch("/menu/:id", authenticate, updateMenuItems);
+router.delete("/menu/:id", authenticate, deleteMenuItems);
 
 module.exports = router;
