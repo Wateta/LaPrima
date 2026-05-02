@@ -28,6 +28,15 @@ html, body, #root, .App {
     font-size: 28px;
     margin-top: 10px;
 }
+
+.landing-page-subtitle-coffee{
+    color:#DDA15E;
+    font-family: "Jim Nightshade", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    margin-top: 10px;
+}
 .landing-page-subtitle-secondary{
     color:white;
     font-size:80px;
