@@ -106,7 +106,7 @@ html, body, #root, .App {
     display: flex;
     min-height: 100vh;
     padding: 40px;
-   padding-top:10px;
+   padding-top:5px;
 }
 
 .left {
@@ -115,7 +115,7 @@ html, body, #root, .App {
     flex-direction: column;
     justify-content: center;
     margin-left: 90px;
-    margin-top: 20px;
+    
 }
 
 .right {
