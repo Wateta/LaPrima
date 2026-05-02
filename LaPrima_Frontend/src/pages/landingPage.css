@@ -29,8 +29,9 @@ html, body, #root, .App {
 
 .navbar-logo {
     color: #DDA15E;
-    font-family: "Jim Nightshade", cursive;
+   font-family: "itim", sans-serif;
     font-size: 40px;
+    margin-top: 5px;
 }
 
 .navbar-links {
@@ -172,7 +173,7 @@ html, body, #root, .App {
     border-width: 0.1px;
 }
 .la{
-    font-size:48px;
+    font-size:40px;
     font-family: "itim", sans-serif;
 }
 .p{
