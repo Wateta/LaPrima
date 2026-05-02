@@ -334,7 +334,7 @@ const forgotPassword = async (req, res) => {
     await user.save();
 
     try {
-      await sendVerificationEmailUtil(email, code);
+      await sendResetPasswordEmailUtil(email, code);
     } catch (emailError) {
       const isDev = process.env.NODE_ENV !== "production";
       const isAuthError =
