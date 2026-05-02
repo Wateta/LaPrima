@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Orders.css';
 
@@ -14,13 +14,7 @@ const Orders = () => {
   });
   const token = localStorage.getItem('token');
 
-  useEffect(() => {
-    if (token) {
-      fetchOrders();
-    }
-  }, [token]);
-
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       const response = await axios.get('/api/orders', {
         headers: { Authorization: `Bearer ${token}` }
@@ -29,7 +23,13 @@ const Orders = () => {
     } catch (error) {
       console.error('Error fetching orders:', error);
     }
-  };
+  }, [token]);
+
+  useEffect(() => {
+    if (token) {
+      fetchOrders();
+    }
+  }, [token, fetchOrders]);
 
   const handleAddOrder = async (e) => {
     e.preventDefault();
