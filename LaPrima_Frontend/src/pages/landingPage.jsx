@@ -1,9 +1,10 @@
 import './landingPage.css'
 
+
 function LandingPage() {
     return (
         <div className="landing-page">
-            <img src="" alt="" />
+              <img src={vectorImg} alt="Image" />
             <div className="landing-navbar">
                 <div className="navbar-logo"><span className='la'>la</span>   <span className='p'>P</span>rima</div>
                 <div className="navbar-links">
