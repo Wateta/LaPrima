@@ -171,3 +171,6 @@ html, body, #root, .App {
     cursor: pointer;
     border-width: 0.1px;
 }
+.la{
+    font-size:48px;
+}
