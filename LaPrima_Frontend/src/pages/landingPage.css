@@ -79,4 +79,8 @@ html, body, #root, .App {
 .landing-page-container{
     display:flex;
 }
-
+.landing-page-description{
+    color:white;
+    font-size: 28px;
+    margin-top: 10px;
+}
