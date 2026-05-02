@@ -7,6 +7,8 @@ const {
   logout,
   testEmail,
   verifyEmail,
+  forgotPassword,
+  resetPassword,
 } = require("../controller/auth.controller");
 
 const { signupValidation, loginValidation } = require("../middleware/auth.middleware");
