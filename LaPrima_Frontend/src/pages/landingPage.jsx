@@ -1,7 +1,9 @@
 function LandingPage(){
     return (
-        <div>
-            <h1>Landing Page</h1>
+        <div className="landing-page">
+           <div className="landing-navbar">
+            
+           </div>
         </div>
     )
 }
