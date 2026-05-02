@@ -1,0 +1,22 @@
+.home {
+  padding: 2rem;
+  text-align: center;
+}
+
+.home h1 {
+  color: #333;
+}
+
+.home-content {
+  margin-top: 2rem;
+}
+
+.home-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.home-content li {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
