@@ -4,7 +4,7 @@ function LandingPage() {
     return (
         <div className="landing-page">
             <div className="landing-navbar">
-                <div className="navbar-logo">a Prima</div>
+                <div className="navbar-logo"><span className='la'>la</span> Prima</div>
                 <div className="navbar-links">
                     <a href="#about">About</a>
                     <a href="#how-it-works">How it works</a>
