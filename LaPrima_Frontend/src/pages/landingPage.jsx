@@ -2,6 +2,9 @@ import './landingPage.css'
 import logo from "../logo.svg"
 import frameImg2 from "../frame2.svg"
 import building from "../building.svg"
+import coffee from "../coffee.svg"
+import handshake from "../handshake.svg"
+
 function LandingPage() {
     return (
         <div className="landing-page">
@@ -92,7 +95,7 @@ function LandingPage() {
                         <div className="built-for-card">
                             <div className="card-header">
                                 <span className="card-icon">
-                                    <img src={frameImg2} alt="coffee" className='frame-image2' />
+                                    <img src={building} alt="building" className='building-image' />
                                 </span>
                                 <div>
                                     <h3 className="card-title">Coffee Shop Owners</h3>
@@ -106,7 +109,9 @@ function LandingPage() {
 
                         <div className="built-for-card">
                             <div className="card-header">
-                                <span className="card-icon">☕</span>
+                                <span className="card-icon">
+                                     <img src={coffee} alt="coffee" className='coffee-image' />
+                                </span>
                                 <div>
                                     <h3 className="card-title">Coffee Enthusiasts</h3>
                                     <div className="card-title-underline"></div>
@@ -119,7 +124,9 @@ function LandingPage() {
 
                         <div className="built-for-card">
                             <div className="card-header">
-                                <span className="card-icon">🤝</span>
+                                <span className="card-icon">
+                                    <img src={handshake} alt="handshake" className='handshake-image' />
+                                </span>
                                 <div>
                                     <h3 className="card-title">Community First</h3>
                                     <div className="card-title-underline"></div>

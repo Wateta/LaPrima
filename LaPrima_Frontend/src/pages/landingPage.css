@@ -343,10 +343,12 @@ html, body, #root, .App {
 
 .built-for-cards {
     display: flex;
-    gap: 32px;
+    gap: 38px;
 }
 
 .built-for-card {
+    width:600px;
+    height: 120px;
     flex: 1;
     border: 1.5px solid #DDA15E;
     border-radius: 16px;
