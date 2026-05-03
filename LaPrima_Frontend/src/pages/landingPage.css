@@ -337,7 +337,7 @@ html, body, #root, .App {
     font-family: "itim", sans-serif;
     font-size: 14px;
     letter-spacing: 0.16em;
-    color: #2B211C;
+    color: #000000;
     text-transform: uppercase;
 }
 
@@ -362,18 +362,20 @@ html, body, #root, .App {
 
 .card-title {
     font-family: "Hedvig Letters Serif", serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: #2B211C;
+    font-size: 50px;
+    font-weight: 800;
+    color: #000;
     margin-bottom: 16px;
+    margin-left: 60px;
 }
 
 .card-desc {
     font-family: "Inria Sans", sans-serif;
-    font-size: 16px;
-    color: #6B5744;
+    font-size: 19px;
+    color: #000;
     line-height: 1.7;
-    font-style: italic;
+    font-style: normal;
+    font-weight: 600;
 }
 
 /* ── HERO WRAPPER ── */
@@ -524,12 +526,12 @@ html, body, #root, .App {
 .card-header {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 14px;
+    gap: 30px;
+    margin-bottom: 25px;
 }
 
 .card-icon {
-    font-size: 28px;
+    font-size: 24px;
     margin-top: 2px;
 }
 
@@ -542,10 +544,11 @@ html, body, #root, .App {
 }
 
 .card-title-underline {
-    width: 40px;
+    width: 70px;
     height: 2px;
     background-color: #DDA15E;
     border-radius: 2px;
+    margin-left: 110px;
 }
 
 .card-desc {

@@ -2,7 +2,7 @@ import './landingPage.css'
 import logo from "../logo.svg"
 import frameImg2 from "../frame2.svg"
 import building from "../building.svg"
-//import coffee from "../coffee.svg"
+import coffee from "../sonia.svg"
 import handshake from "../handshake.svg"
 
 
@@ -111,7 +111,7 @@ function LandingPage() {
                         <div className="built-for-card">
                             <div className="card-header">
                                 <span className="card-icon">
-                                     
+                                     <img src={coffee} alt="coffee" className='coffee-image' />
                                 </span>
                                 <div>
                                     <h3 className="card-title">Coffee Enthusiasts</h3>
