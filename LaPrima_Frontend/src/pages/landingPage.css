@@ -215,3 +215,12 @@ html, body, #root, .App {
     margin-bottom:50px;
     mix-blend-mode: lighten;
 }
+
+.landing-rectangle{
+        width:600px;
+    height:600px;
+    background-color:#ffff;
+    margin-top:10px;
+    margin-bottom:50px;
+    mix-blend-mode: lighten;
+}
