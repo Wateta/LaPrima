@@ -42,8 +42,27 @@ function LandingPage() {
          
                 </div>
             </div>
-            <div className="landing-rectangle">
-            </div>
+           <div className="landing-rectangle">
+    <div className="stat-item">
+        <span className="stat-num">100+</span>
+        <span className="stat-label">Shops registered</span>
+    </div>
+    <div className="stat-divider"></div>
+    <div className="stat-item">
+        <span className="stat-num">42+</span>
+        <span className="stat-label">Coffee Lovers</span>
+    </div>
+    <div className="stat-divider"></div>
+    <div className="stat-item">
+        <span className="stat-num">180k+</span>
+        <span className="stat-label">Cities</span>
+    </div>
+    <div className="stat-divider"></div>
+    <div className="stat-item">
+        <span className="stat-num">80%</span>
+        <span className="stat-label">Efficiency</span>
+    </div>
+</div>
         </div>
     )
 }
