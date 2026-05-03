@@ -1,15 +1,12 @@
 import './landingPage.css'
-//import vectorImg from "../Vector.png";
-import logo from "../logo.svg";
-//import frameImg from "../frame.svg";
-import frameImg2 from "../frame2.svg";
-// LandingPage.jsx — full updated structure
+import logo from "../logo.svg"
+import frameImg2 from "../frame2.svg"
 
 function LandingPage() {
     return (
         <div className="landing-page">
-            
-            {/* ── HERO (dark brown) ── */}
+
+            {/* ── DARK HERO SECTION ── */}
             <div className="hero-section">
                 <div className="landing-navbar">
                     <img src={logo} alt="logo" className='logo-image' />
@@ -45,10 +42,10 @@ function LandingPage() {
                 </div>
             </div>
 
-            {/* ── WHITE SECTION (starts here, card overlaps from above) ── */}
+            {/* ── WHITE SECTION ── */}
             <div className="white-section">
 
-                {/* Stats card sits on the border between dark and white */}
+                {/* Stats card — bridges dark and white */}
                 <div className="landing-rectangle">
                     <div className="stat-item">
                         <span className="stat-num">100+</span>
@@ -71,29 +68,68 @@ function LandingPage() {
                     </div>
                 </div>
 
-                {/* ── BUILT FOR SECTION ── */}
-                <div className="built-for-section">
-                    <div className="section-eyebrow">
-                        <div className="line-decoration-dark"></div>
-                        <p className="built-for-label">BUILT FOR</p>
+                {/* ── BUILT FOR ── */}
+                <div className="built-for-section" id="about">
+
+                    {/* Left side */}
+                    <div className="built-for-left">
+                        <div className="built-for-eyebrow">
+                            <div className="line-decoration-dark"></div>
+                            <p className="built-for-tag">BUILT FOR</p>
+                        </div>
+                        <h2 className="built-for-title">
+                            Two Worlds,<br />
+                            <span className="built-for-title-gold">One platform</span>
+                        </h2>
+                        <p className="built-for-desc">
+                            Whether you brew the perfect espresso or simply can't start your day without one, La Prima is built for you.
+                        </p>
                     </div>
 
-                    <div className="built-for-cards">
+                    {/* Right side — cards */}
+                    <div className="built-for-right">
+
                         <div className="built-for-card">
-                            <h3 className="card-title">Coffee Shop Owners</h3>
+                            <div className="card-header">
+                                <span className="card-icon">🏪</span>
+                                <div>
+                                    <h3 className="card-title">Coffee Shop Owners</h3>
+                                    <div className="card-title-underline"></div>
+                                </div>
+                            </div>
                             <p className="card-desc">
-                                Register your shop, build your full menu, accept online orders, track daily revenue, and build a loyal local following with powerful tools designed for small businesses.
+                                Register your shop, manage your full menu, accept online orders, track daily revenue, and build a loyal local following with powerful tools designed for small businesses.
                             </p>
                         </div>
+
                         <div className="built-for-card">
-                            <h3 className="card-title">Coffee Lovers</h3>
+                            <div className="card-header">
+                                <span className="card-icon">☕</span>
+                                <div>
+                                    <h3 className="card-title">Coffee Enthusiasts</h3>
+                                    <div className="card-title-underline"></div>
+                                </div>
+                            </div>
                             <p className="card-desc">
-                                Discover curated coffee shops near you, browse menus, read real reviews, save your favourites, and order ahead so your cup is ready when you arrive.
+                                Discover curated coffee shops near you, browse menus, read real reviews, save your favorites, and order ahead so your cup is ready when you arrive.
                             </p>
                         </div>
+
+                        <div className="built-for-card">
+                            <div className="card-header">
+                                <span className="card-icon">🤝</span>
+                                <div>
+                                    <h3 className="card-title">Community First</h3>
+                                    <div className="card-title-underline"></div>
+                                </div>
+                            </div>
+                            <p className="card-desc">
+                                La Prima believes local coffee culture deserves a digital home. We help independent shops compete, grow, and connect with the people who love them most.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
-
             </div>
 
         </div>

@@ -280,3 +280,277 @@ html, body, #root, .App {
     background-color: #D0C4B0;
     flex-shrink: 0;
 }
+/* ── HERO WRAPPER — keeps dark background ── */
+.hero-section {
+    background-color: #2B211C;
+    padding: 0 40px 120px 40px; /* big bottom padding = space for card overlap */
+    position: relative;
+}
+
+/* ── WHITE SECTION ── */
+.white-section {
+    background-color: #ffffff;
+    padding-top: 0; /* card handles the top spacing with negative margin */
+    padding-bottom: 80px;
+    width: 100%;
+}
+
+/* ── STATS CARD — bridges both sections ── */
+.landing-rectangle {
+    width: 60%;
+    max-width: 900px;
+    height: auto;
+    padding: 36px 60px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.15);
+
+    /* pulls the card UP into the dark hero section */
+    margin: -80px auto 80px;
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* ── BUILT FOR ── */
+.built-for-section {
+    padding: 0 100px;
+}
+
+.section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.line-decoration-dark {
+    width: 50px;
+    height: 1px;
+    background-color: #2B211C;
+}
+
+.built-for-label {
+    font-family: "itim", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    color: #2B211C;
+    text-transform: uppercase;
+}
+
+.built-for-cards {
+    display: flex;
+    gap: 32px;
+}
+
+.built-for-card {
+    flex: 1;
+    border: 1.5px solid #DDA15E;
+    border-radius: 16px;
+    padding: 36px 32px;
+    transition: box-shadow 0.3s;
+}
+
+.built-for-card:hover {
+    box-shadow: 0 8px 24px rgba(221, 161, 94, 0.2);
+}
+
+.card-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2B211C;
+    margin-bottom: 16px;
+}
+
+.card-desc {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 16px;
+    color: #6B5744;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* ── HERO WRAPPER ── */
+.hero-section {
+    background-color: #2B211C;
+    padding: 0 40px 120px 40px;
+}
+
+/* ── WHITE SECTION ── */
+.white-section {
+    background-color: #ffffff;
+    width: 100%;
+    padding-bottom: 80px;
+}
+
+/* ── STATS CARD — overlaps hero ── */
+.landing-rectangle {
+    width: 65%;
+    max-width: 950px;
+    height: auto;
+    padding: 36px 60px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.15);
+    margin: -80px auto 80px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.stat-num {
+    font-size: 52px;
+    font-weight: 700;
+    color: #1C1208;
+    font-family: "Hedvig Letters Serif", serif;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #9A7E60;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: "itim", sans-serif;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background-color: #D0C4B0;
+    flex-shrink: 0;
+}
+
+/* ── BUILT FOR SECTION ── */
+.built-for-section {
+    display: flex;
+    gap: 80px;
+    padding: 0 100px 60px 100px;
+    align-items: flex-start;
+}
+
+/* Left */
+.built-for-left {
+    flex: 1;
+    padding-top: 20px;
+}
+
+.built-for-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.line-decoration-dark {
+    width: 50px;
+    height: 1px;
+    background-color: #2B211C;
+    flex-shrink: 0;
+}
+
+.built-for-tag {
+    font-family: "itim", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.18em;
+    color: #2B211C;
+    text-transform: uppercase;
+}
+
+.built-for-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 57px;
+    font-weight: 400;
+    color: #1C1208;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    margin-top:170px;
+}
+
+.built-for-title-gold {
+    font-family: "Jim Nightshade", cursive;
+    color: #DDA15E;
+    font-size: 60px;
+    font-style: italic;
+}
+
+.built-for-desc {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 19px;
+    color: #000;
+    font-weight: 500;
+    line-height: 1.7;
+    font-style: normal;
+    margin-right: 300px;
+}
+
+/* Right — cards */
+.built-for-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.built-for-card {
+    border: 1.5px solid #DDA15E;
+    border-radius: 16px;
+    padding: 28px 28px;
+    transition: box-shadow 0.3s, transform 0.2s;
+    background: #fff;
+}
+
+.built-for-card:hover {
+    box-shadow: 0 8px 24px rgba(221, 161, 94, 0.18);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.card-icon {
+    font-size: 28px;
+    margin-top: 2px;
+}
+
+.card-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C1208;
+    margin-bottom: 6px;
+}
+
+.card-title-underline {
+    width: 40px;
+    height: 2px;
+    background-color: #DDA15E;
+    border-radius: 2px;
+}
+
+.card-desc {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 15px;
+    color: #6B5744;
+    line-height: 1.7;
+    margin-left: 42px; /* aligns with title, past the icon */
+}
