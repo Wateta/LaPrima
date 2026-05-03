@@ -91,7 +91,9 @@ function LandingPage() {
 
                         <div className="built-for-card">
                             <div className="card-header">
-                                <span className="card-icon">🏪</span>
+                                <span className="card-icon">
+                                    <img src={frameImg2} alt="coffee" className='frame-image2' />
+                                </span>
                                 <div>
                                     <h3 className="card-title">Coffee Shop Owners</h3>
                                     <div className="card-title-underline"></div>
