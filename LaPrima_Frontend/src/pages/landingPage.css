@@ -43,14 +43,18 @@ html, body, #root, .App {
 
 .navbar-links {
     display: flex;
-    gap: 30px;
+    gap: 50px;
+    font-family: "itim", sans-serif; 
+    color:#F7E5D1;
+    margin-left: 300px;;
 }
 
 .navbar-links a {
-    color: white;
+      font-family: "itim", sans-serif; 
+    color:#F7E5D1;
     text-decoration: none;
-    font-family: "Inria Sans", sans-serif;
-    font-size: 18px;
+    
+    font-size: 30px;
 }
 
 .navbar-links a:hover {
@@ -193,7 +197,8 @@ html, body, #root, .App {
   font-size:90px;
 }
 .logo-image{
-    width:60px;
+    width:100px;
     margin-left:127px;
     margin-top:40px;
+    background-color: transparent;
 }
