@@ -1,7 +1,7 @@
 import './landingPage.css'
 import logo from "../logo.svg"
 import frameImg2 from "../frame2.svg"
-
+import building from "../building.svg"
 function LandingPage() {
     return (
         <div className="landing-page">
