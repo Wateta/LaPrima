@@ -23,7 +23,7 @@ html, body, #root, .App {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding-top: 10px;
     width: 100%;
 }
 
@@ -47,14 +47,14 @@ html, body, #root, .App {
     font-family: "itim", sans-serif; 
     color:#F7E5D1;
     margin-left: 500px;
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 .navbar-links a {
       font-family: "itim", sans-serif; 
     color:#F7E5D1;
     text-decoration: none;
-    
+    margin-top: 5px;
     font-size: 30px;
 }
 
@@ -65,12 +65,13 @@ html, body, #root, .App {
 .navbar-join-btn {
     background-color: #DDA15E;
     color: #2B211C;
-    font-family: "Inria Sans", sans-serif;
-    font-size: 18px;
+     font-family: "itim", sans-serif; 
+    font-size: 20px;
     padding: 10px 25px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    font-weight: 600;
 }
 .landing-page-title{
    color:white;
@@ -147,6 +148,7 @@ html, body, #root, .App {
     font-family: "Inria Sans", sans-serif;
     font-weight: 4;
     font-style:italic;
+    margin-right:150px;
 }
 .landing-buttons{
     display:flex;
@@ -200,7 +202,7 @@ html, body, #root, .App {
 .logo-image{
     width:200px;
     margin-left:127px;
-    margin-top:0px;
+    margin-top:10px;
     margin-bottom:50px;
     
     mix-blend-mode: lighten;
