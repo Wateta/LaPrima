@@ -216,20 +216,67 @@ html, body, #root, .App {
     mix-blend-mode: lighten;
 }
 
-.landing-rectangle {
-    width: 700px;
-    max-width: 90%;           /* responsive — won't overflow on small screens */
-    height: auto;
-    padding: 32px 48px;
-    background-color: #ffffff;
-    margin: 10px auto 50px;   /* auto = centered horizontally */
-    border-radius: 12px;
+/* Wrap hero content so the card can overlap it */
+.landing-content {
+    padding-left: 10px;
+    display: flex;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 100px; /* ← add this so card has space to overlap into */
+    position: relative;    /* ← add this */
+}
 
-    /* Drop shadow matching your Figma exactly (X:1, Y:3, Blur:10, Color:#000 25%) */
+/* The stats card overlap effect */
+.landing-rectangle {
+    width: 60%;
+    max-width: 900px;
+    height: auto;
+    padding: 36px 60px;
+    background-color: #ffffff;
+    border-radius: 16px;
     box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.25);
 
-    /* Stats laid out in a row */
+    /* ← this is what creates the overlap */
+    margin: -80px auto 60px;
+    position: relative;
+    z-index: 10;
+
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+/* Each stat block */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+/* The big number */
+.stat-num {
+    font-size: 52px;
+    font-weight: 700;
+    color: #1C1208;
+    font-family: "Hedvig Letters Serif", serif;
+    line-height: 1;
+}
+
+/* The label below */
+.stat-label {
+    font-size: 14px;
+    color: #9A7E60;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: "itim", sans-serif;
+}
+
+/* Vertical line between stats */
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background-color: #D0C4B0;
+    flex-shrink: 0;
 }
