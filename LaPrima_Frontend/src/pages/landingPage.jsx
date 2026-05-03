@@ -6,8 +6,9 @@ function LandingPage() {
         <div className="landing-page">
              
             <div className="landing-navbar">
-                 <img src={vectorImg} alt="Image"className='logo-image' />
-                <div className="navbar-logo"><span className='la'>la</span>   <span className='p'>P</span>rima</div>
+                
+               {/* <div className="navbar-logo"><span className='la'>la</span>   <span className='p'>P</span>rima</div>  */}
+       <img src={vectorImg} alt="Image"className='logo-image' />
                 <div className="navbar-links">
                     <a href="#about">About</a>
                     <a href="#how-it-works">How it works</a>
