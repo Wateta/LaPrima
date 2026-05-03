@@ -216,11 +216,20 @@ html, body, #root, .App {
     mix-blend-mode: lighten;
 }
 
-.landing-rectangle{
-        width:600px;
-    height:600px;
-    background-color:#ffff;
-    margin-top:10px;
-    margin-bottom:50px;
-    mix-blend-mode: lighten;
+.landing-rectangle {
+    width: 700px;
+    max-width: 90%;           /* responsive — won't overflow on small screens */
+    height: auto;
+    padding: 32px 48px;
+    background-color: #ffffff;
+    margin: 10px auto 50px;   /* auto = centered horizontally */
+    border-radius: 12px;
+
+    /* Drop shadow matching your Figma exactly (X:1, Y:3, Blur:10, Color:#000 25%) */
+    box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.25);
+
+    /* Stats laid out in a row */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
