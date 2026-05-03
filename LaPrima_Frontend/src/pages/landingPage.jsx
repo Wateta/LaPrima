@@ -37,7 +37,7 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className="right">
-                    
+                     <img src={frameImg} alt="Image"className='frame-image2' />
                     <img src={frameImg2} alt="Image"className='frame-image2' />
                     
                 </div>

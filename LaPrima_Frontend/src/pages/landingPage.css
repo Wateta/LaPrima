@@ -210,5 +210,8 @@ html, body, #root, .App {
     mix-blend-mode: lighten;
 }
 .frame-image2{
-    
+    width:600px;
+    margin-top:10px;
+    margin-bottom:50px;
+    mix-blend-mode: lighten;
 }
