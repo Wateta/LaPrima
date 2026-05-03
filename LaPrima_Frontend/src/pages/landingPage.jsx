@@ -1,6 +1,8 @@
 import './landingPage.css'
 //import vectorImg from "../Vector.png";
 import logo from "../logo.svg";
+import frameImg from "../Frame.svg";
+import frameImg2 from "../frame2.svg";
 function LandingPage() {
     return (
         <div className="landing-page">
@@ -35,7 +37,9 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className="right">
-
+                    <img src={frameImg} alt="Image"className='frame-image' />
+                    <img src={frameImg2} alt="Image"className='frame-image2' />
+                    
                 </div>
             </div>
         </div>
