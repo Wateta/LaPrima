@@ -141,9 +141,50 @@ function LandingPage() {
                     </div>
                 </div>
             </div>
-            
+            {/* ── PROCESS SECTION ── */}
+<div className="process-section" id="how-it-works">
+    
+    <div className="process-eyebrow">
+        <div className="line-decoration-dark"></div>
+        <p className="process-tag">PROCESS</p>
+    </div>
 
+    <h2 className="process-title">Up and running</h2>
+    <h2 className="process-title-gold">in minutes</h2>
+
+    <div className="process-cards">
+
+        <div className="process-card">
+            <div className="process-num">1</div>
+            <div className="process-card-icon">✏️</div>
+            <h3 className="process-card-title">Register Your Shop</h3>
+            <p className="process-card-desc">
+                Sign Up, Add your shop details, location, photos, and set up your unique profile page. Quick, free, no credit card needed.
+            </p>
         </div>
+
+        <div className="process-card">
+            <div className="process-num">2</div>
+            <div className="process-card-icon">☰</div>
+            <h3 className="process-card-title">Build Your Menu</h3>
+            <p className="process-card-desc">
+                Upload your full menu with pricing, categories, and beautiful photos of your drinks.
+            </p>
+        </div>
+
+        <div className="process-card">
+            <div className="process-num">3</div>
+            <div className="process-card-icon">🚀</div>
+            <h3 className="process-card-title">Go Live & Grow</h3>
+            <p className="process-card-desc">
+                Start receiving orders, collect reviews, and watch your customer base expand.
+            </p>
+        </div>
+
+    </div>
+</div>
+        </div>
+        
     )
 }
 
