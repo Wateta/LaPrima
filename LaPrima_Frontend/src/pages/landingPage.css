@@ -331,6 +331,7 @@ html, body, #root, .App {
     width: 50px;
     height: 1px;
     background-color: #2B211C;
+    
 }
 
 .built-for-label {
@@ -465,6 +466,7 @@ html, body, #root, .App {
     height: 1px;
     background-color: #2B211C;
     flex-shrink: 0;
+    margin-left:400px;
 }
 
 .built-for-tag {
@@ -562,6 +564,7 @@ html, body, #root, .App {
 }
 /* ── PROCESS SECTION ── */
 .process-section {
+    margin-top:60px;
     padding: 60px 100px 80px 100px;
 }
 
@@ -574,10 +577,12 @@ html, body, #root, .App {
 
 .process-tag {
     font-family: "itim", sans-serif;
-    font-size: 13px;
+    font-size: 20px;
     letter-spacing: 0.18em;
-    color: #ffffff;
+    color: #000;
     text-transform: uppercase;
+    margin-left: 200px;;
+
 }
 
 .process-title {
@@ -657,4 +662,44 @@ html, body, #root, .App {
     color: #6B5744;
     line-height: 1.7;
     font-style: italic;
+}
+.line{
+    width:100px;
+    height:1px;
+    background-color: black;
+    margin-left:400px;
+}
+.built-for-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.built-for-tag {
+    margin: 0;    /* ← same fix */
+    padding: 0;
+}
+.process-eyebrow {
+    display: flex;
+    align-items: center;  /* ← vertically centers line with text */
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.line-decoration-dark {
+    width: 50px;
+    height: 1px;
+    background-color: #2B211C;
+    flex-shrink: 0;        /* ← stops the line from shrinking */
+}
+
+.process-tag {
+    font-family: "itim", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: #2B211C;
+    text-transform: uppercase;
+    margin: 0;             /* ← removes default p tag margin */
+    padding: 0;
 }

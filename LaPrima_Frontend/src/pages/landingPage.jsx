@@ -7,7 +7,6 @@ import handshake from "../handshake.svg"
 
 
 function LandingPage() {
-    function LandingPage() {
     return (
         <div className="landing-page">
 
@@ -222,6 +221,4 @@ function LandingPage() {
 }
 
 export default LandingPage
-}
 
-export default LandingPage
