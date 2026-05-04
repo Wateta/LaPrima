@@ -362,7 +362,7 @@ html, body, #root, .App {
 
 .card-desc {
     font-family: "Inria Sans", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     color: #262626;
     line-height: 1.7;
     margin-left: 50px;
@@ -466,17 +466,18 @@ html, body, #root, .App {
 }
 
 .process-card-title {
-    font-family: "Hedvig Letters Serif", serif;
-    font-size: 18px;
+     font-family: "itim", sans-serif;
+    font-size: 25px;
     font-weight: 600;
     color: #1C1208;
     margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .process-card-desc {
     font-family: "Inria Sans", sans-serif;
-    font-size: 14px;
-    color: #6B5744;
+    font-size: 20px;
+    color: #262626;
     line-height: 1.7;
-    font-style: italic;
+    margin-left: 50px;
 }
