@@ -560,3 +560,101 @@ html, body, #root, .App {
     margin-left: 42px; /* aligns with title, past the icon */
     margin-top:20px;
 }
+/* ── PROCESS SECTION ── */
+.process-section {
+    padding: 60px 100px 80px 100px;
+}
+
+.process-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.process-tag {
+    font-family: "itim", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: #2B211C;
+    text-transform: uppercase;
+}
+
+.process-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #1C1208;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.process-title-gold {
+    font-family: "Jim Nightshade", cursive;
+    font-size: 52px;
+    color: #DDA15E;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 48px;
+}
+
+/* ── 3 CARDS ROW ── */
+.process-cards {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.process-card {
+    flex: 1;
+    border: 1.5px solid #E8D5BC;
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.2s;
+    background: #fff;
+}
+
+.process-card:hover {
+    box-shadow: 0 8px 24px rgba(221, 161, 94, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Gold circle number — top center */
+.process-num {
+    width: 44px;
+    height: 44px;
+    background-color: #DDA15E;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 auto 24px auto;
+}
+
+/* Icon below number */
+.process-card-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    color: #DDA15E;
+}
+
+.process-card-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1C1208;
+    margin-bottom: 12px;
+}
+
+.process-card-desc {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 14px;
+    color: #6B5744;
+    line-height: 1.7;
+    font-style: italic;
+}
