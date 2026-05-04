@@ -7,16 +7,24 @@
 html, body, #root, .App {
     height: 100%;
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
+/* ══════════════════════════════
+   GENERAL
+══════════════════════════════ */
 .landing-page {
     background-color: #2B211C;
     min-height: 100vh;
     width: 100%;
-    margin: 0;
-    padding: 0;
+}
+
+/* ══════════════════════════════
+   HERO SECTION
+══════════════════════════════ */
+.hero-section {
+    background-color: #2B211C;
+    padding: 0 40px 120px 40px;
+    position: relative;
 }
 
 .landing-navbar {
@@ -28,35 +36,24 @@ html, body, #root, .App {
     width: 100%;
 }
 
-.navbar-logo {
-    color: #DDA15E;
-    font-family: "itim", sans-serif;
-    font-size: 40px;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.crown-icon {
-    flex-shrink: 0;
+.logo-image {
+    width: 200px;
+    margin-left: 127px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    mix-blend-mode: lighten;
 }
 
 .navbar-links {
     display: flex;
     gap: 30px;
-    font-family: "itim", sans-serif; 
-    color:#F7E5D1;
-    margin-left: 500px;
-    margin-top: 1px;
 }
 
 .navbar-links a {
-      font-family: "itim", sans-serif; 
-    color:#F7E5D1;
+    font-family: "itim", sans-serif;
+    color: #F7E5D1;
     text-decoration: none;
-    margin-top: 5px;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .navbar-links a:hover {
@@ -66,62 +63,22 @@ html, body, #root, .App {
 .navbar-join-btn {
     background-color: #DDA15E;
     color: #2B211C;
-     font-family: "itim", sans-serif; 
+    font-family: "itim", sans-serif;
     font-size: 20px;
     padding: 10px 25px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    margin-right:90px ;
-}
-.landing-page-title{
-   color:white;
-    font-size:70px;
-    font-family: "Hedvig Letters Serif", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-.landing-page-subtitle{
-    color:#DDA15E;
-    font-family: 'Intel One Mono Variable', 'Courier New', Courier, monospace;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.landing-page-subtitle-coffee{
-    color:#DDA15E;
-    font-family: "Jim Nightshade", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 80px;
-    margin-top: 10px;
-}
-.landing-page-subtitle-secondary{
-    color:white;
-    font-size:70px;
-    font-family: "Hedvig Letters Serif", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.line-decoration {
-    width: 70px;
-    height: 1px;
-    background-color: #DDA15E;
-    margin-bottom: 20px;
-    margin-top:30px;
-    margin-right:15px;
+    margin-right: 90px;
 }
 
 .landing-content {
-    padding-left: 10px;
     display: flex;
-   /* min-height: 100vh;*/
     padding: 40px;
-   padding-top:10px;
+    padding-top: 10px;
+    padding-bottom: 100px;
+    position: relative;
 }
 
 .left {
@@ -130,7 +87,6 @@ html, body, #root, .App {
     flex-direction: column;
     justify-content: center;
     margin-left: 90px;
-    
 }
 
 .right {
@@ -139,260 +95,110 @@ html, body, #root, .App {
     justify-content: center;
     align-items: center;
 }
-.landing-page-container{
-    display:flex;
-   
-}
-.landing-page-description{
-    color:rgb(215, 214, 214);
-    font-size: 25px;
-    margin-top: 10px;
-    font-family: "Inria Sans", sans-serif;
-    font-weight: 4;
-    font-style:italic;
-    margin-right:150px;
-}
-.landing-buttons{
-    display:flex;
-    margin-top: 50px;
-    gap:20px;
-    margin-left:50px;
-    
+
+.landing-page-container {
+    display: flex;
+    align-items: center;
 }
 
-.landing-register{
-  width:220px;
-    height:60px;
+.line-decoration {
+    width: 70px;
+    height: 1px;
+    background-color: #DDA15E;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.landing-page-subtitle {
+    color: #DDA15E;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.landing-page-title {
+    color: white;
+    font-size: 70px;
+    font-family: "Hedvig Letters Serif", serif;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.landing-page-subtitle-coffee {
+    color: #DDA15E;
+    font-family: "Jim Nightshade", cursive;
+    font-weight: 400;
+    font-size: 80px;
+}
+
+.landing-page-subtitle-secondary {
+    color: white;
+    font-size: 70px;
+    font-family: "Hedvig Letters Serif", serif;
+    font-weight: 400;
+}
+
+.landing-page-description {
+    color: rgb(215, 214, 214);
+    font-size: 22px;
+    margin-top: 20px;
+    font-family: "Inria Sans", sans-serif;
+    font-style: italic;
+    margin-right: 150px;
+}
+
+.landing-buttons {
+    display: flex;
+    margin-top: 50px;
+    gap: 20px;
+}
+
+.landing-register {
+    width: 220px;
+    height: 60px;
     background-color: #DDA15E;
     color: #2B211C;
     font-size: 20px;
     font-family: "itim", sans-serif;
-    font-weight: 100;
-    font-style:normal;
     padding: 10px 20px;
-    border-radius: 20px ;
-    border-color: #DDA15E;
+    border-radius: 20px;
+    border: 1px solid #DDA15E;
     cursor: pointer;
-    border-width: 0.1px;
 }
-.landing-register-btn2{
-   width:200px;
-    height:60px;
+
+.landing-register-btn2 {
+    width: 220px;
+    height: 60px;
     background-color: transparent;
     color: #DDA15E;
     font-size: 20px;
     font-family: "itim", sans-serif;
-    font-weight: 100;
-    font-style:normal;
     padding: 10px 20px;
-    border-radius: 20px ;
-    border-color: #DDA15E;
+    border-radius: 20px;
+    border: 1px solid #DDA15E;
     cursor: pointer;
-    border-width: 0.1px;
 }
-.la{
-    font-size:40px;
-    font-family: "itim", sans-serif;
-    margin-right: 10px;
-}
-.p{
-  font-family: "Ingrid Darling", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size:90px;
-}
-.logo-image{
-    width:200px;
-    margin-left:127px;
-    margin-top:10px;
-    margin-bottom:50px;
-    
-    mix-blend-mode: lighten;
-}
-.frame-image2{
-    width:600px;
-    margin-top:10px;
-    margin-bottom:50px;
+
+.frame-image2 {
+    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 50px;
     mix-blend-mode: lighten;
 }
 
-/* Wrap hero content so the card can overlap it */
-.landing-content {
-    padding-left: 10px;
-    display: flex;
-    padding: 40px;
-    padding-top: 10px;
-    padding-bottom: 100px; /* ← add this so card has space to overlap into */
-    position: relative;    /* ← add this */
-}
-
-/* The stats card overlap effect */
-.landing-rectangle {
-    width: 60%;
-    max-width: 900px;
-    height: auto;
-    padding: 36px 60px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.25);
-
-    /* ← this is what creates the overlap */
-    margin: -80px auto 60px;
-    position: relative;
-    z-index: 10;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-/* Each stat block */
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-}
-
-/* The big number */
-.stat-num {
-    font-size: 52px;
-    font-weight: 700;
-    color: #1C1208;
-    font-family: "Hedvig Letters Serif", serif;
-    line-height: 1;
-}
-
-/* The label below */
-.stat-label {
-    font-size: 14px;
-    color: #9A7E60;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-family: "itim", sans-serif;
-}
-
-/* Vertical line between stats */
-.stat-divider {
-    width: 1px;
-    height: 70px;
-    background-color: #D0C4B0;
-    flex-shrink: 0;
-}
-/* ── HERO WRAPPER — keeps dark background ── */
-.hero-section {
-    background-color: #2B211C;
-    padding: 0 40px 120px 40px; /* big bottom padding = space for card overlap */
-    position: relative;
-}
-
-/* ── WHITE SECTION ── */
-.white-section {
-    background-color: #ffffff;
-    padding-top: 0; /* card handles the top spacing with negative margin */
-    padding-bottom: 80px;
-    width: 100%;
-}
-
-/* ── STATS CARD — bridges both sections ── */
-.landing-rectangle {
-    width: 60%;
-    max-width: 900px;
-    height: auto;
-    padding: 36px 60px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.15);
-
-    /* pulls the card UP into the dark hero section */
-    margin: -80px auto 80px;
-    position: relative;
-    z-index: 10;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-/* ── BUILT FOR ── */
-.built-for-section {
-    padding: 0 100px;
-}
-
-.section-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 40px;
-}
-
-.line-decoration-dark {
-    width: 50px;
-    height: 1px;
-    background-color: #2B211C;
-    
-}
-
-.built-for-label {
-    font-family: "itim", sans-serif;
-    font-size: 14px;
-    letter-spacing: 0.16em;
-    color: #000000;
-    text-transform: uppercase;
-}
-
-.built-for-cards {
-    display: flex;
-    gap: 38px;
-}
-
-.built-for-card {
-    width:600px;
-    height: 120px;
-    flex: 1;
-    border: 1.5px solid #DDA15E;
-    border-radius: 16px;
-    padding: 36px 32px;
-    transition: box-shadow 0.3s;
-}
-
-.built-for-card:hover {
-    box-shadow: 0 8px 24px rgba(221, 161, 94, 0.2);
-}
-
-.card-title {
-    font-family: "Hedvig Letters Serif", serif;
-    font-size: 50px;
-    font-weight: 800;
-    color: #000;
-    margin-bottom: 16px;
-    margin-left: 60px;
-}
-
-.card-desc {
-    font-family: "Inria Sans", sans-serif;
-    font-size: 19px;
-    color: #000;
-    line-height: 1.7;
-    font-style: normal;
-    font-weight: 600;
-}
-
-/* ── HERO WRAPPER ── */
-.hero-section {
-    background-color: #2B211C;
-    padding: 0 40px 120px 40px;
-}
-
-/* ── WHITE SECTION ── */
+/* ══════════════════════════════
+   WHITE SECTION
+══════════════════════════════ */
 .white-section {
     background-color: #ffffff;
     width: 100%;
     padding-bottom: 80px;
 }
 
-/* ── STATS CARD — overlaps hero ── */
+/* ══════════════════════════════
+   STATS CARD
+══════════════════════════════ */
 .landing-rectangle {
     width: 65%;
     max-width: 950px;
@@ -440,7 +246,9 @@ html, body, #root, .App {
     flex-shrink: 0;
 }
 
-/* ── BUILT FOR SECTION ── */
+/* ══════════════════════════════
+   BUILT FOR SECTION
+══════════════════════════════ */
 .built-for-section {
     display: flex;
     gap: 80px;
@@ -448,7 +256,6 @@ html, body, #root, .App {
     align-items: flex-start;
 }
 
-/* Left */
 .built-for-left {
     flex: 1;
     padding-top: 20px;
@@ -466,15 +273,17 @@ html, body, #root, .App {
     height: 1px;
     background-color: #2B211C;
     flex-shrink: 0;
-    margin-left:400px;
 }
 
 .built-for-tag {
-    font-family: "itim", sans-serif;
+    font-family: "Inria Sans", sans-serif;
     font-size: 20px;
     letter-spacing: 0.18em;
     color: #2B211C;
     text-transform: uppercase;
+    margin: 0;
+   
+    padding: 0;
 }
 
 .built-for-title {
@@ -483,8 +292,8 @@ html, body, #root, .App {
     font-weight: 400;
     color: #1C1208;
     line-height: 1.1;
+    margin-top:90px;
     margin-bottom: 24px;
-    margin-top:170px;
 }
 
 .built-for-title-gold {
@@ -496,15 +305,11 @@ html, body, #root, .App {
 
 .built-for-desc {
     font-family: "Inria Sans", sans-serif;
-    font-size: 19px;
+    font-size: 18px;
     color: #000;
-    font-weight: 500;
     line-height: 1.7;
-    font-style: normal;
-    margin-right: 300px;
 }
 
-/* Right — cards */
 .built-for-right {
     flex: 1;
     display: flex;
@@ -515,7 +320,7 @@ html, body, #root, .App {
 .built-for-card {
     border: 1.5px solid #DDA15E;
     border-radius: 16px;
-    padding-top:40px;
+    padding: 28px 28px;
     transition: box-shadow 0.3s, transform 0.2s;
     background: #fff;
 }
@@ -527,62 +332,70 @@ html, body, #root, .App {
 
 .card-header {
     display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 25px;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
 }
 
-.card-icon {
-    font-size: 24px;
-    margin-top: 2px;
+.building-image,
+.coffee-image,
+.handshake-image {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
 }
 
 .card-title {
-  font-family: "Inria Sans", sans-serif;
-    font-size: 27px;
-    font-weight: 900;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     color: #1C1208;
     margin-bottom: 6px;
 }
 
 .card-title-underline {
-    width: 70px;
+    width: 50px;
     height: 2px;
     background-color: #DDA15E;
     border-radius: 2px;
-    margin-left: 110px;
 }
 
 .card-desc {
-    font-family: "inter", sans-serif;
-    font-size: 19px;
+    font-family: "Inria Sans", sans-serif;
+    font-size: 15px;
     color: #262626;
-   font-style: normal;
-   font-weight: 400;
-    margin-left: 42px; /* aligns with title, past the icon */
-    margin-top:20px;
+    line-height: 1.7;
+    margin-left: 50px;
 }
-/* ── PROCESS SECTION ── */
+
+/* ══════════════════════════════
+   PROCESS SECTION
+══════════════════════════════ */
 .process-section {
-    margin-top:60px;
+    background-color: #ffffff;
     padding: 60px 100px 80px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .process-eyebrow {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .process-tag {
-    font-family: "itim", sans-serif;
+    font-family: "Inria Sans", sans-serif;
     font-size: 20px;
     letter-spacing: 0.18em;
-    color: #000;
+    color: #2B211C;
     text-transform: uppercase;
-    margin-left: 200px;;
-
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
 }
 
 .process-title {
@@ -590,8 +403,8 @@ html, body, #root, .App {
     font-size: 48px;
     font-weight: 400;
     color: #1C1208;
-    line-height: 1.1;
-    margin-bottom: 4px;
+    margin: 0;
+    text-align: center;
 }
 
 .process-title-gold {
@@ -600,14 +413,14 @@ html, body, #root, .App {
     color: #DDA15E;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 48px;
+    margin: 0 0 40px 0;
+    text-align: center;
 }
 
-/* ── 3 CARDS ROW ── */
 .process-cards {
     display: flex;
     gap: 24px;
-    margin-top: 40px;
+    width: 100%;
 }
 
 .process-card {
@@ -615,7 +428,6 @@ html, body, #root, .App {
     border: 1.5px solid #E8D5BC;
     border-radius: 16px;
     padding: 32px 28px;
-    position: relative;
     transition: box-shadow 0.3s, transform 0.2s;
     background: #fff;
 }
@@ -625,7 +437,6 @@ html, body, #root, .App {
     transform: translateY(-3px);
 }
 
-/* Gold circle number — top center */
 .process-num {
     width: 44px;
     height: 44px;
@@ -641,7 +452,6 @@ html, body, #root, .App {
     margin: 0 auto 24px auto;
 }
 
-/* Icon below number */
 .process-card-icon {
     font-size: 28px;
     margin-bottom: 14px;
@@ -662,95 +472,4 @@ html, body, #root, .App {
     color: #6B5744;
     line-height: 1.7;
     font-style: italic;
-}
-.line{
-    width:100px;
-    height:1px;
-    background-color: black;
-    margin-left:400px;
-}
-.built-for-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 28px;
-}
-
-.built-for-tag {
-    margin: 0;    /* ← same fix */
-    padding: 0;
-     font-family: "Inria Sans", sans-serif;
-}
-.process-eyebrow {
-    display: flex;
-    align-items: center;  /* ← vertically centers line with text */
-    gap: 14px;
-    margin-bottom: 16px;
-}
-
-.line-decoration-dark {
-    width: 50px;
-    height: 1px;
-    background-color: #2B211C;
-    flex-shrink: 0; 
-         /* ← stops the line from shrinking */
-}
-
-.process-tag {
-     font-family: "Inria Sans", sans-serif;
-    font-size: 30px;
-    letter-spacing: 0.18em;
-    color: #000000;
-    text-transform: uppercase;
-
-    margin: 0;             /* ← removes default p tag margin */
-    padding: 0;
-    font-weight: 400;
- 
-
-}
-.process-eyebrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;  /* ← centers the whole row */
-    gap: 14px;
-    margin-bottom: 16px;
-}
-
-.line-decoration-dark {
-    width: 50px;
-    height: 1px;
-    background-color: #2B211C;
-    flex-shrink: 0;
-    /* ← remove margin-left completely */
-}
-
-.process-tag {
-    font-family: "Inria Sans", sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.18em;
-    color: #000000;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-    font-weight: 300;
-    /* ← remove margin-left completely */
-    .process-title {
-    font-family: "Hedvig Letters Serif", serif;
-    font-size: 48px;
-    font-weight: 400;
-    color: #1C1208;
-    text-align: center;   /* ← add this */
-    margin-bottom: 4px;
-}
-
-.process-title-gold {
-    font-family: "Jim Nightshade", cursive;
-    font-size: 52px;
-    color: #DDA15E;
-    font-style: italic;
-    font-weight: 400;
-    text-align: center;   /* ← add this */
-    margin-bottom: 48px;
-}
 }
