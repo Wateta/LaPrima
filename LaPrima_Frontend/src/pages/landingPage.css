@@ -697,10 +697,12 @@ html, body, #root, .App {
 
 .process-tag {
      font-family: "Inria Sans", sans-serif;
-    font-size: 27px;
+    font-size: 26px;
     letter-spacing: 0.18em;
-    color: #2B211C;
+    color: #000000;
     text-transform: uppercase;
     margin: 0;             /* ← removes default p tag margin */
     padding: 0;
+    font-weight: 300;
+
 }
