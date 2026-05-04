@@ -461,7 +461,8 @@ html, body, #root, .App {
 }
 .rocket-image{
     width:35px;
-    margin-right:30px;
+    font-weight: 900px;
+    margin-right:10px;
 }
 
 .process-card-title {
