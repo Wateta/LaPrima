@@ -513,7 +513,7 @@ html, body, #root, .App {
 .built-for-card {
     border: 1.5px solid #DDA15E;
     border-radius: 16px;
-    padding: 28px 28px;
+    padding: 10px 10px;
     transition: box-shadow 0.3s, transform 0.2s;
     background: #fff;
 }
@@ -537,7 +537,7 @@ html, body, #root, .App {
 
 .card-title {
   font-family: "Inria Sans", sans-serif;
-    font-size: 20px;
+    font-size: 27px;
     font-weight: 900;
     color: #1C1208;
     margin-bottom: 6px;
@@ -553,9 +553,9 @@ html, body, #root, .App {
 
 .card-desc {
     font-family: "inter", sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     color: #262626;
-   
+   font-style: normal;
     margin-left: 42px; /* aligns with title, past the icon */
     margin-top:20px;
 }
