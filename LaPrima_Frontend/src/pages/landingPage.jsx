@@ -4,7 +4,9 @@ import frameImg2 from "../frame2.svg"
 import building from "../building.svg"
 import coffee from "../sonia.svg"
 import handshake from "../handshake.svg"
-
+import menu from "../menu.svg";
+import rocket from "../rocket.svg";
+import register from "../register.svg";
 
 function LandingPage() {
     return (
@@ -176,8 +178,12 @@ function LandingPage() {
 
                         <div className="process-card">
                             <div className="process-num">1</div>
-                            <div className="process-card-icon">✏️</div>
-                            <h3 className="process-card-title">Register Your Shop</h3>
+                            <div className="process-card-icon">
+                               
+                            </div>
+                            <h3 className="process-card-title"><span>
+                                 <img src={register} alt="register" className='rocket-image' />
+                                  </span>  Register Your Shop</h3>
                             <p className="process-card-desc">
                                 Sign Up, add your shop details, location, photos,
                                 and set up your unique profile page. Quick, free,
@@ -187,8 +193,12 @@ function LandingPage() {
 
                         <div className="process-card">
                             <div className="process-num">2</div>
-                            <div className="process-card-icon">☰</div>
-                            <h3 className="process-card-title">Build Your Menu</h3>
+                            <div className="process-card-icon">
+                                
+                            </div>
+                            <h3 className="process-card-title"><span>
+                                <img src={menu} alt="menu" className='rocket-image' />
+                                </span>Build Your Menu</h3>
                             <p className="process-card-desc">
                                 Upload your full menu with pricing, categories,
                                 and beautiful photos of your drinks.
@@ -197,8 +207,11 @@ function LandingPage() {
 
                         <div className="process-card">
                             <div className="process-num">3</div>
-                            <div className="process-card-icon">🚀</div>
-                            <h3 className="process-card-title">Go Live & Grow</h3>
+                            <div className="process-card-icon">
+                               
+                            </div>
+                            <h3 className="process-card-title"><span> <img src={rocket} alt="rocket" className='rocket-image' />
+                            </span>      Go Live & Grow</h3>
                             <p className="process-card-desc">
                                 Start receiving orders, collect reviews, and watch
                                 your customer base expand.

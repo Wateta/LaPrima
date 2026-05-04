@@ -454,9 +454,14 @@ html, body, #root, .App {
 }
 
 .process-card-icon {
-    font-size: 28px;
+    font-size: 10px;
     margin-bottom: 14px;
     color: #DDA15E;
+    
+}
+.rocket-image{
+    width:35px;
+    margin-right:30px;
 }
 
 .process-card-title {
