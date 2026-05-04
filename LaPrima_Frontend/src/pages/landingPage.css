@@ -277,7 +277,7 @@ html, body, #root, .App {
 
 .built-for-tag {
     font-family: "Inria Sans", sans-serif;
-    font-size: 20px;
+    font-size: 29px;
     letter-spacing: 0.18em;
     color: #2B211C;
     text-transform: uppercase;
@@ -288,18 +288,18 @@ html, body, #root, .App {
 
 .built-for-title {
     font-family: "Hedvig Letters Serif", serif;
-    font-size: 57px;
+    font-size: 68px;
     font-weight: 400;
     color: #1C1208;
     line-height: 1.1;
-    margin-top:90px;
+    margin-top:120px;
     margin-bottom: 24px;
 }
 
 .built-for-title-gold {
     font-family: "Jim Nightshade", cursive;
     color: #DDA15E;
-    font-size: 60px;
+    font-size: 70px;
     font-style: italic;
 }
 
@@ -308,6 +308,7 @@ html, body, #root, .App {
     font-size: 18px;
     color: #000;
     line-height: 1.7;
+    margin-right:200px;
 }
 
 .built-for-right {
