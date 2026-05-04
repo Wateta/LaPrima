@@ -552,9 +552,10 @@ html, body, #root, .App {
 }
 
 .card-desc {
-    font-family: "Inria Sans", sans-serif;
-    font-size: 15px;
-    color: #6B5744;
-    line-height: 1.7;
+    font-family: "inter", sans-serif;
+    font-size: 20px;
+    color: #262626;
+   
     margin-left: 42px; /* aligns with title, past the icon */
+    margin-top:20px;
 }
