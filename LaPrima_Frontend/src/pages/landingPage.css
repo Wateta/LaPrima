@@ -692,17 +692,65 @@ html, body, #root, .App {
     width: 50px;
     height: 1px;
     background-color: #2B211C;
-    flex-shrink: 0;        /* ← stops the line from shrinking */
+    flex-shrink: 0; 
+         /* ← stops the line from shrinking */
 }
 
 .process-tag {
      font-family: "Inria Sans", sans-serif;
-    font-size: 26px;
+    font-size: 30px;
     letter-spacing: 0.18em;
     color: #000000;
     text-transform: uppercase;
+
     margin: 0;             /* ← removes default p tag margin */
     padding: 0;
-    font-weight: 300;
+    font-weight: 400;
+ 
 
+}
+.process-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* ← centers the whole row */
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.line-decoration-dark {
+    width: 50px;
+    height: 1px;
+    background-color: #2B211C;
+    flex-shrink: 0;
+    /* ← remove margin-left completely */
+}
+
+.process-tag {
+    font-family: "Inria Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    color: #000000;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    /* ← remove margin-left completely */
+    .process-title {
+    font-family: "Hedvig Letters Serif", serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #1C1208;
+    text-align: center;   /* ← add this */
+    margin-bottom: 4px;
+}
+
+.process-title-gold {
+    font-family: "Jim Nightshade", cursive;
+    font-size: 52px;
+    color: #DDA15E;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;   /* ← add this */
+    margin-bottom: 48px;
+}
 }
